@@ -34,7 +34,7 @@
             <el-dropdown placement="bottom">
               <div style="display: flex; align-items: center; cursor: pointer">
                 <img src="../assets/images/logo1.png" alt="" style="width: 40px; height: 40px; margin: 0 5px">
-                <span>管理员</span>
+                <span>{{user.name}}</span>
               </div>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>个人信息</el-dropdown-item>
@@ -55,8 +55,15 @@
 
 <script>
 
+import user from "./manager/User.vue";
+
 export default {
   name: 'Manager',
+  computed: {
+    user() {
+      return user
+    }
+  },
   data() {
     return {
       isCollapse: false,

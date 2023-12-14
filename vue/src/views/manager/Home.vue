@@ -2,7 +2,7 @@
 <template>
   <div>
   <div style="box-shadow: 0 0 10px rgba(0,0,0,.1); padding: 10px 20px; border-radius: 5px; margin-bottom: 10px">
-    早安，{{}}，祝你开心每一天！
+    早安，{{user.name}}，祝你开心每一天！
   </div>
   <el-card style="width: 100%">
     <div slot="header" class="clearfix">
