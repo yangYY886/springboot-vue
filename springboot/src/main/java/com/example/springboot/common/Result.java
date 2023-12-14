@@ -9,26 +9,30 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor   //创建无参构造函数
 @Builder
 public class Result{
-    private static final String SUCCESS ="0";
-    private static final String ERROR ="0";
+    public static final String CODE_SUCCESS = "200";
+    public static final String CODE_AUTH_ERROR = "401";
+    public static final String CODE_SYS_ERROR = "500";
     private String code;
     private String msg;
     private Object data;
-    public static  Result success(){
-        Result result =new Result();
-        result.setCode(SUCCESS);
-        return result;
+    public static Result success() {
+        return new Result(CODE_SUCCESS, "请求成功", null);
     }
-    public static  Result success(Object data){
-        Result result =new Result();
-        result.setCode(SUCCESS);
-        result.setData(data);
-        return result;
+
+    public static Result success(Object data) {
+        return new Result(CODE_SUCCESS, "请求成功", data);
     }
-    public static  Result error(String msg){
-        Result result =new Result();
-        result.setCode(ERROR);
-        result.setMsg(msg);
-        return result;
+
+    public static Result error(String msg) {
+        return new Result(CODE_SYS_ERROR, msg, null);
     }
+
+    public static Result error(String code, String msg) {
+        return new Result(code, msg, null);
+    }
+
+    public static Result error() {
+        return new Result(CODE_SYS_ERROR, "系统错误", null);
+    }
+
 }

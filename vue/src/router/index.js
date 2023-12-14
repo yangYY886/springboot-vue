@@ -10,8 +10,11 @@ const routes = [
     children:[
       {path:'home', name:'Home',component: () =>import('../views/manager/Home')},
       { path: 'user', name: 'User', component: () => import('../views/manager/User') },
-      { path: 'admin', name: 'Admin', component: () => import('../views/manager/Admin.vue') }
-
+      { path: 'admin', name: 'Admin', component: () => import('../views/manager/Admin.vue') },
+      {path: 'person',name: 'Person',component:()=>import('../views/manager/Person.vue')},
+      {path: 'doctor',name: 'Doctor',component:()=>import('../views/manager/Doctor.vue')},
+      {path: 'department',name: 'Department',component:()=>import('../views/manager/Department.vue')},
+      {path: 'appointment',name: 'Appointment',component:()=>import('../views/manager/Appointment.vue')},
     ]
   },
   {
@@ -20,7 +23,7 @@ const routes = [
     component: () =>import('../views/Manager.vue')
   },
   {
-    path:'login', name:'login', component: () =>import('../views/login.vue')
+    path:'/login', name:'login', component: () =>import('../views/login.vue')
   },
   {
     path:'/register',
