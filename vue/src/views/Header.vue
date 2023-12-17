@@ -20,7 +20,7 @@
 
             <el-submenu index="3">
                 <template slot="title">看病就诊</template>
-                <el-menu-item index="/appointment">预约挂号</el-menu-item>
+                <el-menu-item index="/userappointment">预约挂号</el-menu-item>
                 <el-menu-item index="/record">就诊记录</el-menu-item>
                 <el-menu-item index="3-3">检查结果</el-menu-item>
             </el-submenu>

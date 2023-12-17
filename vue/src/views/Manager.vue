@@ -3,7 +3,9 @@
     <el-container>
       <el-aside :width="asideWidth">
         <div style="height: 70px; line-height: 70px; font-size: 20px; display: flex; align-items: center; justify-content: center">
-          <img src="../assets/images/logo.jpg" style="width:70px;" alt="">
+          <!--<img src="../assets/images/logo.jpg" style="width:70px;" alt="">-->
+          <img src="../assets/images/logo.jpg" alt="" style="width: 70px; height: 70px; border-radius:50%;margin: 0 5px">
+
           <span class="logo-title" v-show="!isCollapse">欢迎管理员</span>
         </div>
         <el-menu router :collapse="isCollapse" :collapse-transition="false" background-color="#001529"
@@ -40,19 +42,21 @@
             <i class="el-icon-quipping" @click="handleFullScreen" style="font-size: 25px"></i>
             <el-dropdown placement="bottom">
               <div style="display: flex; align-items: center; cursor: pointer">
-                <img src="../assets/images/logo.jpg" alt="" style="width: 70px; height: 70px; margin: 0 5px">
+                <!--<img src="../assets/images/logo.jpg" alt="" style="width: 70px; height: 70px; margin: 0 5px">-->
+                <img src="../assets/images/logo.jpg" alt="" style="width: 70px; height: 70px; border-radius:50%;margin: 0 5px">
+
                 <span>{{user.name}}</span>
               </div>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item><div @click="$router.push('/person')">个人信息</div></el-dropdown-item>
-                <el-dropdown-item>修改密码</el-dropdown-item>
+                <el-dropdown-item @click="$router.push('/password')">修改密码</el-dropdown-item>
                 <el-dropdown-item><div @click="$router.push('/login')">退出登录</div></el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </div>
         </el-header>
       <el-main>
-        <router-view/>
+        <router-view @update:user="updateUser"/>
         </el-main>
       </el-container>
     </el-container>
@@ -79,13 +83,17 @@ export default {
     return {
       isCollapse: false,
       asideWidth: '200px',
-      collapseIcon: 'el-icon-s-fold'
+      collapseIcon: 'el-icon-s-fold',
+      user:JSON.parse(localStorage.getItem('honey-user')||'{}'),
     }
   },
-  mounted() {
+  mounted() {   //页面加载完成后触发
 
   },
   methods: {
+    updateUser(user){
+      this.User=JSON.parse(JSON.stringify(user))  //让父级对象与子级对象毫无关联
+    },
     handleFullScreen() {
       document.documentElement.requestFullscreen()
     },

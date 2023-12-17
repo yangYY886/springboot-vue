@@ -57,3 +57,21 @@
 .el-menu {
     transition: all .3s;
 }
+
+.header{
+    display:flex;
+    background: dodgerblue;
+    color: white;
+}
+.zuti,header-right{
+    padding: 0 10px;
+    line-height: 40px;
+
+}
+.el-menu-demo{
+    flex: 1;
+}
+.login-avatar-container{
+    display: flex;/* 允许元素在同一行显示 */
+    align-items: center;/* 垂直居中 */
+}
