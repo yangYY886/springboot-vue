@@ -8,5 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
+    @Select("select *from 'user' Where username=#{username}order by id desc" )
+    User selectByUsername(String username);
 
 }

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import ValidCode from "@/views/ValidCode.vue";
+import ValidCode from "@/components/ValidCode.vue";
 
 export default {
   name: "Login",
@@ -87,11 +87,12 @@ export default {
       this.$refs['loginRef'].validate((valid) => {
         if (valid) {
           // 验证通过
+
           this.$request.post('/login', this.user).then(res => {
             if (res.code === '200') {
-              this.$router.push('/')
+              this.$router.push('/home')
               this.$message.success('登录成功')
-              localStorage.setItem("honey-user", JSON.stringify(res.data))  // 存储用户数据
+              localStorage.setItem("user", JSON.stringify(res.data))  // 存储用户数据
             } else {
               this.$message.error(res.msg)
             }

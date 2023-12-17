@@ -10,6 +10,6 @@ public class GlobalException {
     @ExceptionHandler(ServiceException.class)
 
     public Result serviceException(ServiceException e) {
-        return Result.error("500");
+        return Result.error("500",e.getMessage());
     }
 }
