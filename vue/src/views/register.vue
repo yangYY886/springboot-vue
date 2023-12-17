@@ -16,6 +16,12 @@
           <el-form-item prop="confirmPass">
             <el-input prefix-icon="el-icon-lock" size="medium" show-password placeholder="请确认密码" v-model="user.confirmPass"></el-input>
           </el-form-item>
+          <el-form-item pro="role">
+            <el-radio-group v-model="user.role">
+              <el-radio label="用户"></el-radio>
+              <el-radio label="商家"></el-radio>
+            </el-radio-group>
+          </el-form-item>
           <el-form-item>
             <el-button type="info" style="width: 100%" @click="register">注册</el-button>
           </el-form-item>
@@ -60,6 +66,10 @@ export default {
         confirmPass: [
           { validator: validatePassword, trigger: 'blur' }
         ],
+        role: [
+          { required: true, message: '请选择角色', trigger: 'blur' },
+        ],
+
       }
     }
   },

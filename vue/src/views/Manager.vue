@@ -63,10 +63,14 @@
 <script>
 
 import user from "./manager/User.vue";
+import User from "@/views/manager/User.vue";
 
 export default {
   name: 'Manager',
   computed: {
+    User() {
+      return User
+    },
     user() {
       return user
     }
