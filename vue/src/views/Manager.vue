@@ -19,6 +19,7 @@
           </el-submenu>
           <el-submenu index="/home">
             <template slot="title"><i class="el-icon-menu"></i><span>医生管理</span></template>
+            <el-menu-item index="/doctorplan">医生排班</el-menu-item>
             <el-menu-item index="/doctor">医生信息</el-menu-item>
           </el-submenu>
           <el-submenu index="/home">
@@ -27,7 +28,7 @@
           </el-submenu>
           <el-submenu index="/home">
             <template slot="title"><i class="el-icon-menu"></i><span>预约管理</span></template>
-            <el-menu-item index="/appointment">预约审核</el-menu-item>
+            <el-menu-item index="/doctorcard">预约审核</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-
+      <el-input placeholder="请输入用户名" style="width: 200px;margin: 10px" v-model="username"></el-input>
       <el-input placeholder="请输入名字" style="width: 200px;margin: 10px" v-model="name"></el-input>
       <el-button type="success" icon="el-icon-search" label="width:15px" plain @click="load(1)">查询</el-button>
       <el-button type="primary" icon="el-icon-delete"  label="width:15px" plain @click="reset">清空</el-button>
@@ -13,8 +13,10 @@
     <el-table :data="tableData" stripe :header-cell-style="{ backgroundColor: 'aliceblue', color: '#666' }" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center"></el-table-column>
       <el-table-column prop="id" label="序号" width="70" align="center"></el-table-column>
-      <el-table-column prop="name" label="科室名称"></el-table-column>
-      <el-table-column prop="description" label="科室描述"></el-table-column>
+      <el-table-column prop="doctorName" label="医生姓名"></el-table-column>
+      <el-table-column prop="departmentName" label="科室"></el-table-column>
+      <el-table-column prop="num" label="就诊数量"></el-table-column>
+      <el-table-column prop="week" label="周几"></el-table-column>
       <el-table-column label="操作" align="center" width="180">
         <template v-slot="scope">
           <el-button size="mini" type="primary" plain @click="handleEdit(scope.row)">编辑</el-button>
@@ -35,12 +37,30 @@
     </div>
 
     <el-dialog title="请填写信息" :visible.sync="fromVisible" width="30%">
-      <el-form :model="form" label-width="80px" style="padding-right: 20px" :rules="rules" ref="formRef">
-        <el-form-item label="科室名称" prop="name">
-          <el-input v-model="form.name" placeholder="科室名称"></el-input>
+      <el-form :model="form" label-width="90px" style="padding-right: 20px" :rules="rules" ref="formRef">
+        <el-form-item label="请选择医生" prop="doctor_id" width="70">
+          <el-select v-model="form.department_id" placeholder="请选择医生" style="width: 100%">
+            <el-option
+                v-for="item in doctorData"
+                :key="item.id"
+                :label="item.name+ ' - ' +item.departmentName"
+                :value="item.id">
+            </el-option>
+          </el-select>
         </el-form-item>
-        <el-form-item label="科室简介" prop="description">
-          <el-input type="textarea" v-model="form.description" placeholder="科室简介"></el-input>
+        <el-form-item label="看病人数" prop="num">
+          <el-input v-model="form.num" placeholder="请输入看病人数"></el-input>
+        </el-form-item>
+        <el-form-item  prop="week" label="选择周几">
+          <el-select v-model="form.week" placeholder="请选择周几" style="width: 100%">
+            <el-option label="星期一" value="星期一"></el-option>
+            <el-option label="星期二" value="星期二"></el-option>
+            <el-option label="星期三" value="星期三"></el-option>
+            <el-option label="星期四" value="星期四"></el-option>
+            <el-option label="星期五" value="星期五"></el-option>
+            <el-option label="星期六" value="星期六"></el-option>
+            <el-option label="星期日" value="星期日"></el-option>
+          </el-select>
         </el-form-item>
       </el-form>
 
@@ -58,19 +78,20 @@
 import request from "@/utils/request";
 
 export default {
-  name: "Department",
+  name: "User",
   data() {
     return {
       tableData: [],  // 所有的数据
       pageNum: 1,   // 当前的页码
       pageSize: 5,  // 每页显示的个数
+      username: '',
       name: '',
       total: 0,
       fromVisible: false,
       form: {},
-      user: JSON.parse(localStorage.getItem('department') || '{}'),
+      user: JSON.parse(localStorage.getItem('users') || '{}'),
       rules: {
-        name: [
+        username: [
           { required: true, message: '请输入账号', trigger: 'blur' },
         ]
       },
@@ -78,16 +99,26 @@ export default {
     }
   },
   created() {
-    this.load()
+    this.load(),
+        this.doctorData()
   },
   methods: {
+    doctorData(){
+        request.get('/Doctor/selectAll').then(res=>{
+          if (res.code === '200'){
+            this.doctorData=res.data
+          }else {
+            this.$message.error(res.msg)
+          }
+        })
+    },
     delBatch() {
       if (!this.ids.length) {
         this.$message.warning('请选择数据')
         return
       }
       this.$confirm('您确认批量删除这些数据吗？', '确认删除', {type: "warning"}).then(response => {
-        request.delete('/Department/delete/batch', {data: this.ids}).then(res => {
+        request.delete('/Doctor/delete/batch', {data: this.ids}).then(res => {
           if (res.code === '200') {   // 表示操作成功
             this.$message.success('操作成功')
             this.load(1)
@@ -104,7 +135,7 @@ export default {
     del(id) {
       this.$confirm('您确认删除吗？', '确认删除', {
         type: "warning"}).then(response => {
-        request.delete('/Department/delete/' + id).then(res => {
+        request.delete('/Doctor/delete/' + id).then(res => {
           if (res.code === '200') {   // 表示操作成功
             this.$message.success('删除成功')
             this.load(1)
@@ -120,14 +151,14 @@ export default {
       this.fromVisible = true   // 打开弹窗
     },
     handleAdd() {   // 新增数据
-      this.form = {role: '用户'}  // 新增数据的时候清空数据
+      this.form = {}  // 新增数据的时候清空数据
       this.fromVisible = true   // 打开弹窗
     },
     save() {   // 保存按钮触发的逻辑  它会触发新增或者更新
       this.$refs.formRef.validate((valid) => {
         if (valid) {
           request({
-            url: this.form.id ? '/Department/update' : '/Department/add',
+            url: this.form.id ? '/Doctor/update' : '/Doctor/add',
             method: this.form.id ? 'PUT' : 'POST',
             data: this.form
           }).then(res => {
@@ -143,15 +174,17 @@ export default {
       })
     },
     reset() {
+      this.username = ''
       this.name = ''
       this.load()
     },
     load(pageNum) {  // 分页查询
       if (pageNum) this.pageNum = pageNum
-      request.get('/Department/selectByPage', {
+      request.get('/Doctor/selectByPage', {
         params: {
           pageNum: this.pageNum,
           pageSize: this.pageSize,
+          username: this.username,
           name: this.name,
           total: this.total
         }

@@ -1,27 +1,26 @@
 package com.example.springboot.controller;
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.springboot.common.Result;
-import com.example.springboot.entity.Doctor;
-import com.example.springboot.service.DoctorService;
+import com.example.springboot.entity.DoctorPlan;
+import com.example.springboot.service.DoctorPlanService;
 import com.github.pagehelper.util.StringUtil;
 import jakarta.annotation.Resource;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/Doctor")
-public class DoctorController {
+@RequestMapping("/Plan")
+public class DoctorPlanController {
     @Resource
-    DoctorService doctorService;
+    DoctorPlanService doctorPlanService;
     @PostMapping("/add")
-    public Result add(@RequestBody Doctor doctor) {
+    public Result add(@RequestBody DoctorPlan doctorPlan) {
         try {
-            doctorService.save(doctor);
+            doctorPlanService.save(doctorPlan);
         } catch (Exception e) {
             if (e instanceof DuplicateKeyException) {
                 return Result.error("插入数据失败");
@@ -35,8 +34,8 @@ public class DoctorController {
      * 修改用户信息
      */
     @PutMapping("/update")
-    public Result update(@RequestBody Doctor doctor) {
-        doctorService.updateById(doctor);
+    public Result update(@RequestBody DoctorPlan doctorPlan) {
+        doctorPlanService.updateById(doctorPlan);
         return Result.success();
     }
     /**
@@ -44,7 +43,7 @@ public class DoctorController {
      */
     @DeleteMapping("/delete/{id}")
     public Result delete(@PathVariable Integer id) {
-        doctorService.removeById(id);
+        doctorPlanService.removeById(id);
         return Result.success();
 
     }
@@ -54,31 +53,30 @@ public class DoctorController {
      */
     @GetMapping("/selectAll")
     public Result selectAll() {
-        List<Doctor> doctorList=doctorService.list(new QueryWrapper<Doctor>().orderByDesc("id"));
-        return Result.success(doctorList);
+        List<DoctorPlan> userList=doctorPlanService.list(new QueryWrapper<DoctorPlan>().orderByDesc("id"));
+        return Result.success(userList);
     }
     /**
      * 根据ID查询用户信息
      */
     @GetMapping("/selectById/{id}")
     public Result selectById(@PathVariable Integer id) {
-        Doctor user = doctorService.getById(id);
-        return Result.success(user);
+        DoctorPlan doctorPlan = doctorPlanService.getById(id);
+        return Result.success(doctorPlan);
     }
     //批量删除
     @DeleteMapping("/delete/batch")
     public Result delete(@RequestBody List<Integer> ids) {
-        doctorService.removeBatchByIds(ids);
+        doctorPlanService.removeBatchByIds(ids);
         return Result.success();
     }
     //分页查询
     @GetMapping("/selectByPage")
     public Result selectByPage(@RequestParam Integer pageNum,@RequestParam Integer pageSize,@RequestParam String username,String name){
-        QueryWrapper<Doctor> queryWrapper=new QueryWrapper<Doctor>().orderByDesc("id");
+        QueryWrapper<DoctorPlan> queryWrapper=new QueryWrapper<DoctorPlan>().orderByDesc("id");
         queryWrapper.like(StringUtil.isNotEmpty(username),"username",username);
         queryWrapper.like(StringUtil.isNotEmpty(name),"name",name);
-        Page<Doctor> page=doctorService.page(new Page<>(pageNum,pageSize),queryWrapper);
+        Page<DoctorPlan> page=doctorPlanService.page(new Page<>(pageNum,pageSize),queryWrapper);
         return Result.success(page);
-
     }
 }
