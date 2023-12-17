@@ -2,7 +2,7 @@
   <div style="height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #669fef">
     <div style="display: flex; background-color: white; width: 50%; border-radius: 5px; overflow: hidden">
       <div style="flex: 1">
-        <img src="../assets/images/register.png" alt="" style="width: 100%">
+        <img src="../assets/images/login.png" alt="" style="width: 100%">
       </div>
       <div style="flex: 1; display: flex; align-items: center; justify-content: center">
         <el-form :model="user" style="width: 80%" :rules="rules" ref="registerRef">
@@ -23,10 +23,10 @@
             </el-radio-group>
           </el-form-item>
           <el-form-item>
-            <el-button type="info" style="width: 100%" @click="register">注册</el-button>
+            <el-button type="info" style="width: 100%;color: #379bfc" @click="register">注册</el-button>
           </el-form-item>
           <div style="display: flex">
-            <div style="flex: 1">已经有账号了？请 <span style="color: #6e77f2; cursor: pointer" @click="$router.push('/login')">登录</span></div>
+            <div style="flex: 1">已经有账号了？请 <span style="color: #379bfc; cursor: pointer" @click="$router.push('/login')">登录</span></div>
           </div>
         </el-form>
       </div>
