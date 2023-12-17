@@ -15,6 +15,8 @@ const routes = [
       {path: 'doctor',name: 'Doctor',component:()=>import('../views/manager/Doctor.vue')},
       {path: 'department',name: 'Department',component:()=>import('../views/manager/Department.vue')},
       {path: 'appointment',name: 'Appointment',component:()=>import('../views/manager/Appointment.vue')},
+      {path: 'doctorplan',name: 'DoctorPlan',component:()=>import('../views/manager/DoctorPlan.vue')},
+      {path: 'doctorcard',name: 'DoctorCard',component:()=>import('../views/manager/DoctorCard.vue')},
     ]
   },
   {

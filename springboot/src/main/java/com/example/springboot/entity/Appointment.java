@@ -9,10 +9,10 @@ import lombok.Data;
 @TableName("appointment")
 public class Appointment {
     @TableId(type = IdType.AUTO)
-    private Integer appointmentId;
+    private Integer appointment_id;
     private Integer id;
-    private Integer doctorId;
-    private Integer departmentId;
+    private Integer doctor_id;
+    private Integer department_id;
     private String appointmentWeek;
     private String appointmentTime;
     private String status;
