@@ -1,3 +1,4 @@
+
 <template>
   <div class="ValidCode disabled-select" style="width: 100%; height: 100%" @click="refreshCode">
     <span v-for="(item, index) in codeList" :key="index" :style="getStyle(item)">{{item.code}}</span>
