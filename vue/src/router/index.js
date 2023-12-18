@@ -19,11 +19,11 @@ const routes = [
       {path: 'doctorcard',name: 'DoctorCard',component:()=>import('../views/manager/DoctorCard.vue')},
     ]
   },
-  {
-    path:'/Manager',
-    name:'Manager',
-    component: () =>import('../views/Manager.vue')
-  },
+  // {
+  //   path:'/Manager',
+  //   name:'Manager',
+  //   component: () =>import('../views/Manager.vue')
+  // },
   {
     path:'/login', name:'login', component: () =>import('../views/login.vue')
   },
