@@ -7,7 +7,6 @@
             <el-table-column label="时间" prop="Time"></el-table-column>
         </el-table>
     </div>
-
 </template>
 
 <script>

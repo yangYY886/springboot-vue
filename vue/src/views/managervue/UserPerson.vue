@@ -111,7 +111,6 @@ export default {
     text-align: center;
     border-radius: 50%;
 }
-
 .avatar {
     width: 178px;
     height: 178px;

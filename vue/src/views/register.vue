@@ -72,7 +72,6 @@ export default {
     }
   },
   created() {
-
   },
   methods: {
     register() {

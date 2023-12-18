@@ -195,7 +195,6 @@ export default {
     justify-content: center;
     align-items: center;
 }
-
 .modal-content button {
     margin-top: 10px;
 }
