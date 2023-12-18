@@ -33,7 +33,6 @@ export default {
                 callback()
             }
         }
-
         return {
             user: JSON.parse(localStorage.getItem('honey-user') || '{}'),
             rules: {

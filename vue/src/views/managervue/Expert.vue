@@ -136,9 +136,14 @@ export default {
     align-items: center;
     flex-direction: column; /* 垂直居中排列 */
     min-height: 100vh;
-    background-color: #f0f0f0;
+    //background-color: #f0f0f0;
     padding-top: 20px;
     padding-bottom: 20px;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("@/assets/images/images01.png");
 }
 
 .title {
@@ -154,7 +159,7 @@ export default {
 }
 
 .expert {
-    width: 22%;
+    width: 20%;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
