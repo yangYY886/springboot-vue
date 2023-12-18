@@ -20,6 +20,5 @@ public class Doctor {
     private String time;
     private Double price;
     private String position;
-    private Integer department_id;
-
+    private String depart;
 }
