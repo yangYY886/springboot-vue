@@ -8,7 +8,7 @@
     </div>
    <div class="table" style="padding: 15px 20px">
       <el-row :gutter="20">
-        <el-col :span="8" v-for=" item in tableData "  style="margin-bottom: 20px">
+        <el-col :span="8" v-for=" item in tableData "   :key="item.id" style="margin-bottom: 20px">
           <div style="text-align:center;background-color: #f1d9db" class="card">
             <img src="@/assets/images/tx.png" alt="" style="width: 100px;heigth:100px; border-radius: 50%">
             <div style="font-weight:550;margin-top: 10px">

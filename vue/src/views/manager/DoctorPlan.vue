@@ -14,7 +14,7 @@
       <el-table-column type="selection" width="55" align="center"></el-table-column>
       <el-table-column prop="id" label="序号" width="70" align="center"></el-table-column>
       <el-table-column prop="doctorName" label="医生姓名"></el-table-column>
-      <el-table-column prop="departmentName" label="科室"></el-table-column>
+      <el-table-column prop="departmentName" label="科室名称"></el-table-column>
       <el-table-column prop="num" label="就诊数量"></el-table-column>
       <el-table-column prop="week" label="周几"></el-table-column>
       <el-table-column label="操作" align="center" width="180">
@@ -35,7 +35,6 @@
           :total="total">
       </el-pagination>
     </div>
-
     <el-dialog title="请填写信息" :visible.sync="fromVisible" width="30%">
       <el-form :model="form" label-width="90px" style="padding-right: 20px" :rules="rules" ref="formRef">
         <el-form-item label="请选择医生" prop="doctor_id" width="70">
@@ -43,7 +42,7 @@
             <el-option
                 v-for="item in doctorData"
                 :key="item.id"
-                :label="item.name+ ' - ' +item.departmentName"
+                :label="item.name"
                 :value="item.id">
             </el-option>
           </el-select>
@@ -78,7 +77,7 @@
 import request from "@/utils/request";
 
 export default {
-  name: "User",
+  name: "DoctorPlan",
   data() {
     return {
       tableData: [],  // 所有的数据
@@ -89,7 +88,7 @@ export default {
       total: 0,
       fromVisible: false,
       form: {},
-      user: JSON.parse(localStorage.getItem('users') || '{}'),
+      user: JSON.parse(localStorage.getItem('doctor') || '{}'),
       rules: {
         username: [
           { required: true, message: '请输入账号', trigger: 'blur' },

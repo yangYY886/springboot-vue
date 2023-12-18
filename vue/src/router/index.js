@@ -20,17 +20,6 @@ const routes = [
     ]
   },
   {
-    path: '/',
-    name: 'Layout',
-    component: () =>import('../views/Layout.vue'),
-    redirect:'/index',//重定向到主页
-    children:[
-      {path:'index', name:'index',component: () =>import('../views/index.vue')},
-      {path:'expert', name:'expert',component: () =>import('../views/managervue/Expert.vue')},
-      {path:'keshiIntroduction', name:'keshiIntroduction',component: () =>import('../views/managervue/KeshiIntroduction.vue')}
-    ]},
-
-  {
     path:'/Manager',
     name:'Manager',
     component: () =>import('../views/Manager.vue')
@@ -40,9 +29,6 @@ const routes = [
   },
   {
     path:'/register', name:'register', component: () =>import('../views/register.vue')
-  },
-  {
-    path:'/index', name:'index', component: () =>import('../views/index.vue')
   },
 
 ]
