@@ -80,6 +80,11 @@ export default {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("@/assets/images/images01.png");
 }
 /deep/.el-form-item__label {
     font-weight: bold;

@@ -1,14 +1,14 @@
 <template>
     <div class="center-container">
-        <el-card style="width: 50%">
-            <el-form ref="formRef" :model="user" :rules="rules" label-width="80px" style="padding-right: 20px">
-                <el-form-item label="原始密码" prop="password">
+        <el-card style="width: 40%;height: 300px;">
+            <el-form ref="formRef" :model="user" :rules="rules" label-width="80px" style="padding-right: 20px; background-color: rgba(255, 255, 255, 0.8);">
+                <el-form-item label="原始密码" prop="password" style="margin-bottom: 35px;">
                     <el-input show-password v-model="user.password" placeholder="原始密码"></el-input>
                 </el-form-item>
-                <el-form-item label="新密码" prop="newPassword">
+                <el-form-item label="新密码" prop="newPassword" style="margin-bottom: 35px;">
                     <el-input show-password v-model="user.newPassword" placeholder="新密码"></el-input>
                 </el-form-item>
-                <el-form-item label="确认密码" prop="confirmPassword">
+                <el-form-item label="确认密码" prop="confirmPassword" style="margin-bottom: 20px;">
                     <el-input show-password v-model="user.confirmPassword" placeholder="确认密码"></el-input>
                 </el-form-item>
                 <div style="text-align: center; margin-bottom: 20px">
@@ -78,7 +78,12 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 70vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("@/assets/images/images01.png");
 }
 /deep/.el-form-item__label {
     font-weight: bold;

@@ -73,7 +73,6 @@ export default {
     .el-menu-demo{
         flex: 1;
     }
-
 }
 .login-avatar-container{
     display: flex;/* 允许元素在同一行显示 */

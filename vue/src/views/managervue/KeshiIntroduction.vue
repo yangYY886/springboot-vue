@@ -1,5 +1,4 @@
 <template>
-
     <div class="hospital-container">
         <h2 class="title">科室介绍</h2>
         <div class="departments">
