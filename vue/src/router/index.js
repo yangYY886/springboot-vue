@@ -18,6 +18,7 @@ const routes = [
       {path: 'doctorplan',name: 'DoctorPlan',component:()=>import('../views/manager/DoctorPlan.vue')},
       {path: 'doctorcard',name: 'DoctorCard',component:()=>import('../views/manager/DoctorCard.vue')},
       {path: 'news',name: 'News',component:()=>import('../views/manager/News.vue')},
+      {path: 'password',name: 'Password',component:()=>import('../views/manager/Password.vue')},
     ]
   },
   {

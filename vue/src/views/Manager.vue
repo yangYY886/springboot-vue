@@ -27,6 +27,7 @@
           <el-submenu index="/home">
             <template slot="title"><i class="el-icon-menu"></i><span>科室管理</span></template>
             <el-menu-item index="/department">科室信息</el-menu-item>
+            <el-menu-item index="/password">修改信息</el-menu-item>
           </el-submenu>
           <el-submenu index="/home">
             <template slot="title"><i class="el-icon-menu"></i><span>预约管理</span></template>
