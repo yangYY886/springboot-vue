@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.springboot.common.Result;
 import com.example.springboot.entity.Appointment;
-import com.example.springboot.entity.User;
 import com.example.springboot.service.AppointmentService;
 import com.github.pagehelper.util.StringUtil;
 import jakarta.annotation.Resource;
@@ -74,9 +73,8 @@ public class AppointmentController {
     }
     //分页查询
     @GetMapping("/selectByPage")
-    public Result selectByPage(@RequestParam Integer pageNum,@RequestParam Integer pageSize,@RequestParam String username,String name){
+    public Result selectByPage(@RequestParam Integer pageNum,@RequestParam Integer pageSize,@RequestParam String name){
         QueryWrapper<Appointment> queryWrapper=new QueryWrapper<Appointment>().orderByDesc("id");
-        queryWrapper.like(StringUtil.isNotEmpty(username),"username",username);
         queryWrapper.like(StringUtil.isNotEmpty(name),"name",name);
         Page<Appointment> page=appointmentService.page(new Page<>(pageNum,pageSize),queryWrapper);
         return Result.success(page);

@@ -81,4 +81,13 @@ public class DoctorController {
         return Result.success(page);
 
     }
+    @GetMapping("/selectByPageL")
+    public Result selectByPageL(@RequestParam Integer pageNum,@RequestParam Integer pageSize,@RequestParam String depart,String week){
+        QueryWrapper<Doctor> queryWrapperL=new QueryWrapper<Doctor>().orderByDesc("id");
+        queryWrapperL.like(StringUtil.isNotEmpty(depart),"depart",depart);
+        queryWrapperL.like(StringUtil.isNotEmpty(week),"week",week);
+        Page<Doctor> page=doctorService.page(new Page<>(pageNum,pageSize),queryWrapperL);
+        return Result.success(page);
+
+    }
 }

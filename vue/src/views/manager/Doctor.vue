@@ -19,9 +19,11 @@
       <el-table-column prop="email" label="邮箱"></el-table-column>
       <el-table-column prop="depart" label="科室"></el-table-column>
       <el-table-column prop="time" label="入职时间"></el-table-column>
+      <el-table-column prop="week" label="值班时间"></el-table-column>
       <el-table-column prop="position" label="职位"></el-table-column>
       <el-table-column prop="description" label="描述"></el-table-column>
       <el-table-column prop="price" label="挂号费"></el-table-column>
+
       <el-table-column label="操作" align="center" width="180">
         <template v-slot="scope">
           <el-button size="mini" type="primary" plain @click="handleEdit(scope.row)">编辑</el-button>
@@ -66,6 +68,9 @@
         </el-form-item>
         <el-form-item label="职位" prop="position">
           <el-input v-model="form.position" placeholder="职位"></el-input>
+        </el-form-item>
+        <el-form-item  label="值班时间" prop="week">
+          <el-input v-model="form.week" placeholder="值班时间"></el-input>
         </el-form-item>
         <el-form-item label="入职时间" prop="time" >
           <el-date-picker style="width: 100%"

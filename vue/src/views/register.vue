@@ -19,7 +19,7 @@
           <el-form-item pro="role">
             <el-radio-group v-model="user.role">
               <el-radio label="用户"></el-radio>
-              <el-radio label="商家"></el-radio>
+              <el-radio label="管理员"></el-radio>
             </el-radio-group>
           </el-form-item>
           <el-form-item>

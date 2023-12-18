@@ -5,7 +5,6 @@
             <img src="@/assets/images/logo.png" alt="" style="width: 40px;position: relative;top: 10px;">
             <span style="font-size: 20px;margin-left: 15px;color: white">智慧医疗</span>
         </div>
-
         <el-menu
             :default-active="$route.path" router
             class="el-menu-demo"
@@ -13,14 +12,14 @@
             background-color="dodgerblue"
             text-color="#fff"
             active-text-color="white">
-            <el-menu-item index="/">首页</el-menu-item>
+            <el-menu-item index="/index">首页</el-menu-item>
             <el-submenu index="2">
                 <template slot="title">科室介绍</template>
                 <el-menu-item index="/keshiIntroduction">科室介绍</el-menu-item>
                 <el-menu-item index="/expert">专家介绍</el-menu-item>
             </el-submenu>
 
-            <el-menu-item index="/appointment">预约挂号</el-menu-item>
+            <el-menu-item index="/doctorcard">预约挂号</el-menu-item>
 
 
             <el-menu-item index="/consult">后台管理</el-menu-item>

@@ -21,4 +21,5 @@ public class Doctor {
     private Double price;
     private String position;
     private String depart;
+    private String week;
 }
