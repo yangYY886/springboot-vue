@@ -27,6 +27,7 @@
             <el-submenu index="5">
                 <template slot="title">个人中心</template>
                 <el-menu-item index="/userPerson">个人信息</el-menu-item>
+                <el-menu-item index="/record">预约记录</el-menu-item>
                 <el-menu-item index="/userPassword">修改密码</el-menu-item>
                 <el-menu-item index="/login">退出登录</el-menu-item>
             </el-submenu>

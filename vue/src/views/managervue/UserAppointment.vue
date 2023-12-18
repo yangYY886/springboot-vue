@@ -4,6 +4,8 @@
             <!--<h2>预约挂号</h2>-->
             <div class="appointment">
                 <div class="appointment-wraper"></div>
+                <el-card>
+                    <h3>预约挂号</h3>
                 <div class="appointment-content centered-form">
                     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
                         <el-form-item label="姓名" prop="name">
@@ -70,7 +72,7 @@
                     </el-form>
 
                 </div>
-
+                </el-card>
             </div>
         </div>
     </div>
@@ -154,10 +156,25 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* 使表单占满整个视口高度 */
+    height: 80vh; /* 使表单占满整个视口高度 */
 }
 .el-input,
 .el-select {
     height: 40px;
+}
+.appointment-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("@/assets/images/images01.png");
+}
+h3 {
+    text-align: center;
+    margin-top: 30px;
 }
 </style>

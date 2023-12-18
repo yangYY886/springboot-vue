@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #a49494">
+  <div class="login-container" style="height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #a49494">
     <div style="display: flex; background-color: white; width: 50%; border-radius: 5px; overflow: hidden">
       <div style="flex: 1">
         <img src="../assets/images/syLogo.png" alt="" style="width: 100%">
@@ -105,5 +105,15 @@ export default {
 </script>
 
 <style scoped>
-
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("@/assets/images/images01.png");
+}
 </style>

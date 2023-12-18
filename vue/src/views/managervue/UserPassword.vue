@@ -1,14 +1,15 @@
 <template>
     <div class="center-container">
-        <el-card style="width: 40%;height: 300px;">
+        <el-card style="width: 40%;height: 400px;">
+            <h3>修改密码</h3>
             <el-form ref="formRef" :model="user" :rules="rules" label-width="80px" style="padding-right: 20px; background-color: rgba(255, 255, 255, 0.8);">
-                <el-form-item label="原始密码" prop="password" style="margin-bottom: 35px;">
+                <el-form-item label="原始密码" prop="password" style="margin-bottom: 35px;margin-top: 30px;">
                     <el-input show-password v-model="user.password" placeholder="原始密码"></el-input>
                 </el-form-item>
                 <el-form-item label="新密码" prop="newPassword" style="margin-bottom: 35px;">
                     <el-input show-password v-model="user.newPassword" placeholder="新密码"></el-input>
                 </el-form-item>
-                <el-form-item label="确认密码" prop="confirmPassword" style="margin-bottom: 20px;">
+                <el-form-item label="确认密码" prop="confirmPassword" style="margin-bottom: 35px;">
                     <el-input show-password v-model="user.confirmPassword" placeholder="确认密码"></el-input>
                 </el-form-item>
                 <div style="text-align: center; margin-bottom: 20px">
@@ -87,5 +88,9 @@ export default {
 }
 /deep/.el-form-item__label {
     font-weight: bold;
+}
+h3 {
+    text-align: center;
+    margin-top: 30px;
 }
 </style>

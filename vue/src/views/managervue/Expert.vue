@@ -199,5 +199,4 @@ export default {
 .modal-content button {
     margin-top: 10px;
 }
-
 </style>
