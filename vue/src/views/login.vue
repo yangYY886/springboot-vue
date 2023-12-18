@@ -87,7 +87,6 @@ export default {
       this.$refs['loginRef'].validate((valid) => {
         if (valid) {
           // 验证通过
-
           this.$request.post('/login', this.user).then(res => {
             if (res.code === '200') {
               this.$router.push('/home')

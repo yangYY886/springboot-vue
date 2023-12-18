@@ -37,7 +37,6 @@
                          v-bind:style="{color:'white',textDecoration:'none'}">
                 登录/注册
             </router-link>
-
         </div>
     </div>
 

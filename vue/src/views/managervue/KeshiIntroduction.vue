@@ -15,7 +15,6 @@ export default {
     name: "KeshiIntroduction",
     data() {
         return {
-
             departments: [
                 {
                     name: "儿科",

@@ -16,7 +16,6 @@ export default {
             appointmentRecords: [
                 { patientName: 'John Doe', doctor: 'Dr. Smith', date: '2023-01-01', time: '10:00 AM' },
                 { patientName: 'Jane Doe', doctor: 'Dr. Johnson', date: '2023-01-02', time: '02:30 PM' },
-
             ],
         };
     },

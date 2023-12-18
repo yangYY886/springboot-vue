@@ -91,7 +91,6 @@ export default {
                 doctor:'',
                 date1: '',
                 date2: '',
-
                 history1:'',
                 history2:'',
 
@@ -162,6 +161,7 @@ export default {
 .el-select {
     height: 40px;
 }
+
 .appointment-container{
     display: flex;
     justify-content: center;
