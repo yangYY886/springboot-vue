@@ -73,6 +73,7 @@ export default {
   },
   created() {
   },
+
   methods: {
     register() {
       this.$refs['registerRef'].validate((valid) => {

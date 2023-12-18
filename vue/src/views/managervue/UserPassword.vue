@@ -84,6 +84,7 @@ export default {
     background-repeat: no-repeat;
     background-image: url("@/assets/images/images01.png");
 }
+
 /deep/.el-form-item__label {
     font-weight: bold;
 }

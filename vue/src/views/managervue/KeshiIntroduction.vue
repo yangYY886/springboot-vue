@@ -79,7 +79,6 @@ export default {
     align-items: center;
     flex-direction: column; /* 垂直居中排列 */
     min-height: 100vh; /* 使用min-height确保内容不会挤到底部 */
-    //background-color: #f0f0f0;
     padding-top: 20px; /* 增加上边距 */
     padding-bottom: 20px;
     min-height: 100vh;

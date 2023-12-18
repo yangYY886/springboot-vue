@@ -136,7 +136,6 @@ export default {
     align-items: center;
     flex-direction: column; /* 垂直居中排列 */
     min-height: 100vh;
-    //background-color: #f0f0f0;
     padding-top: 20px;
     padding-bottom: 20px;
     min-height: 100vh;

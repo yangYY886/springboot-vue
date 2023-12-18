@@ -21,7 +21,6 @@ const routes = [
       {path: 'password',name: 'Password',component:()=>import('../views/manager/Password.vue')},
     ]
   },
-
   {
     path: '/',
     name: 'Layout',

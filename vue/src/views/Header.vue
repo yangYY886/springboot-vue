@@ -22,7 +22,6 @@
 
             <el-menu-item index="/userAppointment">预约挂号</el-menu-item>
 
-
             <el-menu-item index="/adminManager">后台管理</el-menu-item>
             <el-submenu index="5">
                 <template slot="title">个人中心</template>
