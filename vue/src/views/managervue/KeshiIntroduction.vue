@@ -83,7 +83,6 @@ export default {
     padding-top: 20px; /* 增加上边距 */
     padding-bottom: 20px;
 }
-
 .title {
     font-size: 24px;
     color: #333;

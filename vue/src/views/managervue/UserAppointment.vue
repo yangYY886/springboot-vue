@@ -161,7 +161,6 @@ export default {
 .el-select {
     height: 40px;
 }
-
 .appointment-container{
     display: flex;
     justify-content: center;
