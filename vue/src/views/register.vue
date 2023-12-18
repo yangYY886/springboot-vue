@@ -1,8 +1,8 @@
 <template>
-  <div style="height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #669fef">
+  <div style="height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #cbcbbb">
     <div style="display: flex; background-color: white; width: 50%; border-radius: 5px; overflow: hidden">
       <div style="flex: 1">
-        <img src="../assets/images/register.png" alt="" style="width: 100%">
+        <img src="../assets/images/syLogo.png" alt="" style="width: 100%">
       </div>
       <div style="flex: 1; display: flex; align-items: center; justify-content: center">
         <el-form :model="user" style="width: 80%" :rules="rules" ref="registerRef">
@@ -19,7 +19,7 @@
           <el-form-item pro="role">
             <el-radio-group v-model="user.role">
               <el-radio label="用户"></el-radio>
-              <el-radio label="商家"></el-radio>
+              <el-radio label="管理员"></el-radio>
             </el-radio-group>
           </el-form-item>
           <el-form-item>

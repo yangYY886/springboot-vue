@@ -17,6 +17,7 @@ const routes = [
       {path: 'appointment',name: 'Appointment',component:()=>import('../views/manager/Appointment.vue')},
       {path: 'doctorplan',name: 'DoctorPlan',component:()=>import('../views/manager/DoctorPlan.vue')},
       {path: 'doctorcard',name: 'DoctorCard',component:()=>import('../views/manager/DoctorCard.vue')},
+      {path: 'news',name: 'News',component:()=>import('../views/manager/News.vue')},
     ]
   },
   // {

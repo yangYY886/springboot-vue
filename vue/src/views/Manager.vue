@@ -14,6 +14,10 @@
             <span slot="title">系统首页</span>
           </el-menu-item>
           <el-submenu index="/home">
+            <template slot="title"><i class="el-icon-menu"></i><span>新闻管理</span></template>
+            <el-menu-item index="/news">新闻信息</el-menu-item>
+          </el-submenu>
+          <el-submenu index="/home">
             <template slot="title"><i class="el-icon-menu"></i><span>信息管理</span></template>
             <el-menu-item index="/user">用户信息</el-menu-item>
           </el-submenu>
@@ -44,8 +48,6 @@
                 <span>{{user.name}}</span>
               </div>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item><div @click="$router.push('/person')">个人信息</div></el-dropdown-item>
-                <el-dropdown-item>修改密码</el-dropdown-item>
                 <el-dropdown-item><div @click="$router.push('/login')">退出登录</div></el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
