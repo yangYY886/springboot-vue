@@ -106,3 +106,83 @@ export default {
 }
 </script>
 
+<style>
+.el-menu--inline, .el-menu-item {
+    background-color: #000c17 !important;
+}
+
+.el-submenu__title {
+    height: 40px !important;
+    line-height: 40px !important;
+    padding: 0 25px !important;
+    transition: color 0s;
+}
+.el-menu--collapse .el-submenu__title {
+    padding: 0 20px !important;
+}
+.el-submenu__title>i:nth-child(1) {
+    margin-top: 2px;
+}
+.el-submenu__title>i.el-submenu__icon-arrow {
+    margin-top: -5px;
+}
+.el-menu-item {
+    min-width: 0 !important;
+    width: calc(100% - 10px);
+    margin: 5px;
+    height: 40px !important;
+    line-height: 40px !important;
+    border-radius: 5px;
+}
+.el-menu--inline>.el-menu-item {
+    padding-left: 50px !important;
+}
+.el-menu-item.is-active {
+    background-color: dodgerblue !important;
+}
+
+.el-menu-item:hover {
+    color: #fff !important;
+}
+
+.el-submenu__title:hover *, .el-submenu__title:hover {
+    color: #fff !important;
+}
+
+.el-aside {
+    box-shadow: 2px 0 6px rgba(0, 21, 41, .35);
+    background-color: #001529;
+    color: #fff;
+    min-height: 100vh;
+
+}
+.el-menu--collapse .el-tooltip {
+    padding: 0 15px !important;
+}
+.logo-title {
+    margin-left: 5px;
+
+}
+.el-menu {
+    transition: all .3s;
+}
+
+.header{
+    display:flex;
+    background: dodgerblue;
+    color: white;
+}
+.zuti,header-right{
+    padding: 0 10px;
+    line-height: 40px;
+
+}
+.el-menu-demo{
+    flex: 1;
+}
+.login-avatar-container{
+    display: flex;/* 允许元素在同一行显示 */
+    align-items: center;/* 垂直居中 */
+}
+
+</style>
