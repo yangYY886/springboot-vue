@@ -20,11 +20,22 @@ const routes = [
       {path: 'news',name: 'News',component:()=>import('../views/manager/News.vue')},
     ]
   },
-  // {
-  //   path:'/Manager',
-  //   name:'Manager',
-  //   component: () =>import('../views/Manager.vue')
-  // },
+  {
+    path: '/',
+    name: 'Layout',
+    component: () =>import('../views/Layout.vue'),
+    redirect:'/index',//重定向到主页
+    children:[
+      {path:'index', name:'index',component: () =>import('../views/index.vue')},
+      {path:'expert', name:'expert',component: () =>import('../views/managervue/Expert.vue')},
+      {path:'keshiIntroduction', name:'keshiIntroduction',component: () =>import('../views/managervue/KeshiIntroduction.vue')},
+      //{path:'appointment', name:'appointment',component: () =>import('../views/managervue/Appointment.vue')},
+    ]},
+  {
+    path:'/Manager',
+    name:'Manager',
+    component: () =>import('../views/Manager.vue')
+  },
   {
     path:'/login', name:'login', component: () =>import('../views/login.vue')
   },
@@ -33,6 +44,7 @@ const routes = [
   },
 
 ]
+
 
 const router = new VueRouter({
   mode: 'history',
