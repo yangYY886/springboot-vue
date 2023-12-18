@@ -1,7 +1,7 @@
 <template>
     <div class="appointment-container">
         <div class="appointment-box">
-            <h2>预约挂号</h2>
+            <!--<h2>预约挂号</h2>-->
             <div class="appointment">
                 <div class="appointment-wraper"></div>
                 <div class="appointment-content centered-form">

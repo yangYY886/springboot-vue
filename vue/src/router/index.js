@@ -17,6 +17,7 @@ const routes = [
       {path: 'appointment',name: 'Appointment',component:()=>import('../views/manager/Appointment.vue')},
       {path: 'doctorplan',name: 'DoctorPlan',component:()=>import('../views/manager/DoctorPlan.vue')},
       {path: 'doctorcard',name: 'DoctorCard',component:()=>import('../views/manager/DoctorCard.vue')},
+      {path: 'password',name: 'password',component:()=>import('../views/manager/Password.vue')},
     ]
   },
   {
@@ -28,7 +29,13 @@ const routes = [
       {path:'index', name:'index',component: () =>import('../views/index.vue')},
       {path:'expert', name:'expert',component: () =>import('../views/managervue/Expert.vue')},
       {path:'keshiIntroduction', name:'keshiIntroduction',component: () =>import('../views/managervue/KeshiIntroduction.vue')},
-      //{path:'appointment', name:'appointment',component: () =>import('../views/managervue/Appointment.vue')},
+      {path:'userAppointment', name:'userAppointment',component: () =>import('../views/managervue/UserAppointment.vue')},
+      //{path:'userPerson', name:'userPerson',component: () =>import('../views/managervue/UserPerson.vue')},
+      //{path:'userPassword', name:'userPassword',component: () =>import('../views/managervue/UserPassword.vue')},
+      //{path:'userManager', name:'userManager',component: () =>import('../views/managervue/UserManager.vue')},
+      {path:'userPerson', name:'userPerson',component: () =>import('../views/managervue/UserPerson.vue')},
+      {path:'userPassword', name:'userPassword',component: () =>import('../views/managervue/UserPassword.vue')},
+
     ]},
   {
     path:'/Manager',
