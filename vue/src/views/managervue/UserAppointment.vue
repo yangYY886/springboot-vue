@@ -159,6 +159,6 @@ export default {
 }
 .el-input,
 .el-select {
-    height: 40px; /* 根据需要调整高度值 */
+    height: 40px;
 }
 </style>

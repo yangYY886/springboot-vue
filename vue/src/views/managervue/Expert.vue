@@ -144,7 +144,7 @@ export default {
 .title {
     font-size: 24px;
     color: #333;
-    margin-bottom: 20px; /* 增加标题与专家介绍之间的间距 */
+    margin-bottom: 20px;
 }
 
 .experts {

@@ -79,7 +79,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Optional: Adjust the height based on your design */
+    height: 100vh;
 }
 /deep/.el-form-item__label {
     font-weight: bold;

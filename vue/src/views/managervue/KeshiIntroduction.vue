@@ -16,7 +16,7 @@ export default {
     name: "KeshiIntroduction",
     data() {
         return {
-            //hospitalName: "示例医院",
+
             departments: [
                 {
                     name: "儿科",
@@ -84,7 +84,7 @@ export default {
     min-height: 100vh; /* 使用min-height确保内容不会挤到底部 */
     background-color: #f0f0f0;
     padding-top: 20px; /* 增加上边距 */
-    padding-bottom: 20px; /* 增加下边距 */
+    padding-bottom: 20px;
 }
 
 .title {

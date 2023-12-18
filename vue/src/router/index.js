@@ -30,9 +30,6 @@ const routes = [
       {path:'expert', name:'expert',component: () =>import('../views/managervue/Expert.vue')},
       {path:'keshiIntroduction', name:'keshiIntroduction',component: () =>import('../views/managervue/KeshiIntroduction.vue')},
       {path:'userAppointment', name:'userAppointment',component: () =>import('../views/managervue/UserAppointment.vue')},
-      //{path:'userPerson', name:'userPerson',component: () =>import('../views/managervue/UserPerson.vue')},
-      //{path:'userPassword', name:'userPassword',component: () =>import('../views/managervue/UserPassword.vue')},
-      //{path:'userManager', name:'userManager',component: () =>import('../views/managervue/UserManager.vue')},
       {path:'userPerson', name:'userPerson',component: () =>import('../views/managervue/UserPerson.vue')},
       {path:'userPassword', name:'userPassword',component: () =>import('../views/managervue/UserPassword.vue')},
 
