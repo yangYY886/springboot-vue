@@ -6,7 +6,7 @@ const routes = [
     path: '/',
     name: 'Manager',
     component: () =>import('../views/Manager.vue'),
-    redirect:'/home',//重定向到主页
+    redirect:'/login',//重定向到主页
     children:[
       {path:'home', name:'Home',component: () =>import('../views/manager/Home')},
       { path: 'user', name: 'User', component: () => import('../views/manager/User') },

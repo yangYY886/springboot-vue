@@ -6,7 +6,7 @@
       </div>
       <div style="flex: 1; display: flex; align-items: center; justify-content: center">
         <el-form :model="user" style="width: 80%" :rules="rules" ref="registerRef">
-          <div style="font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 20px">欢迎注册后台管理系统</div>
+          <div style="font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 20px">欢迎注册医疗系统</div>
           <el-form-item prop="username">
             <el-input prefix-icon="el-icon-user" size="medium" placeholder="请输入账号" v-model="user.username"></el-input>
           </el-form-item>
@@ -16,12 +16,12 @@
           <el-form-item prop="confirmPass">
             <el-input prefix-icon="el-icon-lock" size="medium" show-password placeholder="请确认密码" v-model="user.confirmPass"></el-input>
           </el-form-item>
-          <el-form-item pro="role">
-            <el-radio-group v-model="user.role">
-              <el-radio label="用户"></el-radio>
-              <el-radio label="管理员"></el-radio>
-            </el-radio-group>
-          </el-form-item>
+<!--          <el-form-item pro="role">-->
+<!--            <el-radio-group v-model="user.role">-->
+<!--              <el-radio label="用户"></el-radio>-->
+<!--              <el-radio label="管理员"></el-radio>-->
+<!--            </el-radio-group>-->
+<!--          </el-form-item>-->
           <el-form-item>
             <el-button type="info" style="width: 100%;" @click="register">注册</el-button>
           </el-form-item>
@@ -104,6 +104,6 @@ export default {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("@/assets/images/images01.png");
+    background-image: url("@/assets/images/01.png");
 }
 </style>
