@@ -6,7 +6,7 @@
       </div>
       <div style="flex: 1; display: flex; align-items: center; justify-content: center">
         <el-form :model="user" style="width: 80%" :rules="rules" ref="loginRef">
-          <div style="font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 20px">欢迎登录后台管理系统</div>
+          <div style="font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 20px">欢迎登录医疗系统</div>
           <el-form-item prop="username">
             <el-input prefix-icon="el-icon-user" size="medium" placeholder="请输入账号" v-model="user.username"></el-input>
           </el-form-item>
@@ -21,11 +21,17 @@
               </div>
             </div>
           </el-form-item>
+          <el-form-item pro="role">
+            <el-radio-group v-model="user.role">
+              <el-radio label="用户"></el-radio>
+              <el-radio label="管理员"></el-radio>
+            </el-radio-group>
+          </el-form-item>
           <el-form-item>
             <el-button type="primary" style="width: 100%" @click="login">登录</el-button>
           </el-form-item>
           <div style="display: flex">
-            <div style="flex: 1">还没有账号？请 <span style="color: #0f9876; cursor: pointer" @click="$router.push('/register')">注册</span></div>
+            <div style="flex: 1">没有账号请 <span style="color: #0f9876; cursor: pointer" @click="$router.push('/register')">注册</span></div>
             <div style="flex: 1; text-align: right"><span style="color: #0f9876; cursor: pointer">忘记密码</span></div>
           </div>
         </el-form>
@@ -89,8 +95,14 @@ export default {
           // 验证通过
           this.$request.post('/login', this.user).then(res => {
             if (res.code === '200') {
-              this.$router.push('/home')
+              if (this.user.role === '管理员') {
+                this.$router.push('/home'); // 管理员后台首页路径
+              } else {
+                this.$router.push('/index'); // 普通用户首页路径
+              }
               this.$message.success('登录成功')
+              // this.$router.push('/home')
+              // this.$message.success('登录成功')
               localStorage.setItem("user", JSON.stringify(res.data))  // 存储用户数据
             } else {
               this.$message.error(res.msg)
@@ -113,6 +125,6 @@ export default {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("@/assets/images/images01.png");
+    background-image: url("@/assets/images/01.png");
 }
 </style>

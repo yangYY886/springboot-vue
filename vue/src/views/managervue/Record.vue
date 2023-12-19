@@ -75,7 +75,7 @@ export default {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("@/assets/images/images01.png");
+    background-image: url("@/assets/images/01.png");
 }
 h3 {
     text-align: center;
