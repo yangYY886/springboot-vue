@@ -18,6 +18,7 @@ const routes = [
       {path: 'news',name: 'News',component:()=>import('../views/manager/News.vue')},
       {path: 'doctorcard',name: 'DoctorCard',component:()=>import('../views/manager/DoctorCard.vue')},
       {path: 'record',name: 'Record',component:()=>import('../views/manager/Record.vue')},
+      {path: 'audting',name: 'Audting',component:()=>import('../views/manager/Audting.vue')},
     ]
   },
   {

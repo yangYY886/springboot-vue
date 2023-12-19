@@ -11,9 +11,9 @@
     <el-table :data="tableData" stripe :header-cell-style="{ backgroundColor: 'aliceblue', color: '#666' }" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center"></el-table-column>
       <el-table-column prop="id" label="序号" width="70" align="center"></el-table-column>
-      <el-table-column prop="doctor" label="医生名称"></el-table-column>
-      <el-table-column prop="depart" label="科室名称"></el-table-column>
-      <el-table-column prop="weeks" label="预约时间"></el-table-column>
+      <el-table-column  prop="doctor" label="医生名称"></el-table-column>
+      <el-table-column  prop="depart"  label="部门名称"></el-table-column>
+      <el-table-column prop="weeks"  label="预约时间" ></el-table-column>
       <el-table-column prop="username" label="用户名"></el-table-column>
       <el-table-column prop="name" label="姓名"></el-table-column>
       <el-table-column prop="age" label="年龄"></el-table-column>
@@ -25,7 +25,7 @@
       <el-table-column prop="reason" label="原因"></el-table-column>
       <el-table-column label="操作" align="center" width="180">
         <template v-slot="scope">
-          <el-button size="mini" type="primary" plain @click="handleEdit(scope.row)">编辑</el-button>
+          <el-button size="mini" type="primary" plain @click="handleEdit(scope.row)">审核</el-button>
           <el-button size="mini" type="danger" plain @click="del(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
@@ -40,44 +40,22 @@
           :total="total">
       </el-pagination>
     </div>
-    <el-dialog title="请填写信息" :visible.sync="fromVisible" width="30%">
+    <el-dialog title="审核信息" :visible.sync="fromVisible" width="30%">
       <el-form :model="form" label-width="80px" style="padding-right: 20px" :rules="rules" ref="formRef">
-        <el-form-item label="医生名称" prop="doctor">
-          <el-input v-model="form.doctor" placeholder="医生名称"></el-input>
+        <el-form-item label="状态" prop="status" label-width="15%">
+          <el-radio v-model="form.status" label="审核通过"></el-radio>
+          <el-radio v-model="form.status" label="审核不通过"></el-radio>
         </el-form-item>
-        <el-form-item label="部门名称" prop="depart">
-          <el-input v-model="form.depart" placeholder="部门名称"></el-input>
-        </el-form-item>
-        <el-form-item label="预约时间" prop="weeks">
-          <el-input v-model="form.weeks" placeholder="预约时间"></el-input>
-        </el-form-item>
-        <el-form-item label="用户名" prop="username">
-          <el-input v-model="form.username" placeholder="用户名"></el-input>
-        </el-form-item>
-        <el-form-item label="姓名" prop="name">
-          <el-input v-model="form.name" placeholder="姓名"></el-input>
-        </el-form-item>
-        <el-form-item label="年龄" prop="age">
-          <el-input v-model="form.age" placeholder="年龄"></el-input>
-        </el-form-item>
-        <el-form-item label="性别" prop="sex">
-          <el-input v-model="form.sex" placeholder="性别"></el-input>
-        </el-form-item>
-        <el-form-item label="电话" prop="phone">
-          <el-input v-model="form.phone" placeholder="电话"></el-input>
-        </el-form-item>
-        <el-form-item label="邮箱" prop="email">
-          <el-input v-model="form.email" placeholder="邮箱"></el-input>
-        </el-form-item>
-        <el-form-item label="病情" prop="cases">
-          <el-input type="textarea" v-model="form.cases" placeholder="病情"></el-input>
+        <el-form-item label="原因" prop="reason">
+          <el-input type="textarea" v-model="form.reason" placeholder="原因"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="fromVisible = false">取消编辑</el-button>
-        <el-button type="primary" @click="save">保存编辑</el-button>
+        <el-button @click="fromVisible = false">取消审核</el-button>
+        <el-button type="primary" @click="save">确定审核</el-button>
       </div>
     </el-dialog>
+
 
   </div>
 </template>
@@ -86,7 +64,7 @@
 import request from "@/utils/request";
 
 export default {
-  name: "Record",
+  name: "Audting",
   data() {
     return {
       tableData: [],  // 所有的数据

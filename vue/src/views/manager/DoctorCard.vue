@@ -5,6 +5,7 @@
       <el-input placeholder="请输入星期.." style="width: 200px;margin: 10px" v-model="week"></el-input>
       <el-button type="success" icon="el-icon-search" label="width:15px" plain @click="load(1)">查询</el-button>
       <el-button type="primary" icon="el-icon-delete"  label="width:15px" plain @click="reset">清空</el-button>
+      <el-button type="danger" plain @click="handleAdd">进行预约</el-button>
     </div>
    <div class="table" style="padding: 15px 20px">
       <el-row :gutter="20">
@@ -23,9 +24,6 @@
             <div>
               挂号费：<span style="margin-left: 5px;font-weight: 500">{{item.price}}</span>
             </div>
-            <div style="margin-top: 15px">
-              <el-button type="primary" size="mini" @click="handleAdd">预约</el-button>
-            </div>
           </div>
         </el-col>
       </el-row>
@@ -41,8 +39,39 @@
           :total="total">
       </el-pagination>
     </div>
+
     <el-dialog title="请填写信息" :visible.sync="fromVisible" width="30%">
       <el-form :model="form" label-width="80px" style="padding-right: 20px" :rules="rules" ref="formRef">
+        <el-form-item label="医生名字" prop="doctor">
+          <el-select v-model="form.doctor" placeholder="请选择医生名称" style="width: 100%">
+            <el-option
+                v-for="item in doctorDate"
+                :key="item.id"
+                :label="item.name"
+                :value="item.name">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item  label="科室" prop="depart" >
+          <el-select v-model="form.depart" placeholder="请选择科室名称" style="width: 100%">
+            <el-option
+                v-for="item in departDate"
+                :key="item.id"
+                :label="item.name"
+                :value="item.name">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="预约时间" prop="weeks">
+          <el-select v-model="form.weeks" placeholder="请选择预约时间" style="width: 100%">
+            <el-option
+                v-for="item in weeksDate"
+                :key="item.id"
+                :label="item.week"
+                :value="item.week">
+            </el-option>
+          </el-select>
+        </el-form-item>
         <el-form-item label="用户名" prop="username">
           <el-input v-model="form.username" placeholder="用户名"></el-input>
         </el-form-item>
@@ -87,10 +116,14 @@ export default {
       week: '',
       total: 0,
       fromVisible: false,
+      doName:'',
+      deName:'',
+      weeks:'',
       form: {},
-      doctor: JSON.parse(localStorage.getItem('doctor') || '{}'),
       ids: [],
-      departmentDate:[],
+      departDate:[],
+      doctorDate:[],
+      weeksDate:[],
       rules: {
         username: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
@@ -110,17 +143,38 @@ export default {
   created() {
     this.load()
     this.loadDepartment()
+    this.loadDoctor()
+    this.loadWeeks()
   },
   methods: {
     loadDepartment(){
       request.get('/Department/selectAll').then(res=>{
         if (res.code === '200'){
-          this.departmentDate=res.data
+          this.departDate=res.data
         }else {
           this.$message.error(res.msg)
         }
       })
     },
+    loadWeeks(){
+  request.get('/Doctor/selectAll').then(res=>{
+    if (res.code === '200'){
+      this.weeksDate=res.data
+    }else {
+      this.$message.error(res.msg)
+    }
+  })
+},
+    loadDoctor(){
+      request.get('/Doctor/selectAll').then(res=>{
+        if (res.code === '200'){
+          this.doctorDate=res.data
+        }else {
+          this.$message.error(res.msg)
+        }
+      })
+    },
+
     handleAdd() {   // 新增数据
       this.form = {}  // 新增数据的时候清空数据
       this.fromVisible = true   // 打开弹窗

@@ -29,7 +29,8 @@
           </el-submenu>
           <el-submenu index="/home">
             <template slot="title"><i class="el-icon-menu"></i><span>预约管理</span></template>
-            <el-menu-item index="/doctorcard">预约审核</el-menu-item>
+            <el-menu-item index="/doctorcard">进行预约</el-menu-item>
+            <el-menu-item index="/audting">预约审核</el-menu-item>
             <el-menu-item index="/record">预约记录</el-menu-item>
           </el-submenu>
         </el-menu>

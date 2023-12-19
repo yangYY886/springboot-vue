@@ -10,6 +10,9 @@ import lombok.Data;
 public class Appointment {
     @TableId(type = IdType.AUTO)
     private Integer id;
+    private String weeks;
+    private String doctor;
+    private String depart;
     private String username;
     private String name;
     private Integer age;
@@ -18,4 +21,6 @@ public class Appointment {
     private String email;
     private String cases;
     private String status;
+    private String reason;
+
 }
