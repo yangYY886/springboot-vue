@@ -13,17 +13,24 @@
             text-color="#fff"
             active-text-color="white">
             <el-menu-item index="/index">首页</el-menu-item>
-            <el-submenu index="2">
+
+            <el-submenu index="/">
                 <template slot="title">科室介绍</template>
-                <el-menu-item index="/keshiIntroduction">科室介绍</el-menu-item>
-                <el-menu-item index="/expert">专家介绍</el-menu-item>
+                <el-menu-item index="keshiIntroduction">科室介绍</el-menu-item>
+                <el-menu-item index="expert">专家介绍</el-menu-item>
             </el-submenu>
 
-            <el-menu-item index="/doctorcard">预约挂号</el-menu-item>
+          <el-submenu index="/">
+            <template slot="title">预约挂号</template>
+            <el-menu-item index="doctorcard">进行预约</el-menu-item>
+            <el-menu-item index="record">预约记录</el-menu-item>
+          </el-submenu>
 
-
-            <el-menu-item index="/consult">后台管理</el-menu-item>
-            <el-menu-item index="/person">个人中心</el-menu-item>
+          <el-submenu index="/">
+            <template slot="title">个人中心</template>
+            <el-menu-item index="person">个人信息</el-menu-item>
+            <el-menu-item index="password">修改密码</el-menu-item>
+          </el-submenu>
 
         </el-menu>
         <div class="header-right">
