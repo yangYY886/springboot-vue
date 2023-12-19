@@ -1,5 +1,4 @@
 <template>
-
     <div class="hospital-container">
         <h2 class="title">科室介绍</h2>
         <div class="departments">
@@ -16,7 +15,6 @@ export default {
     name: "KeshiIntroduction",
     data() {
         return {
-            //hospitalName: "示例医院",
             departments: [
                 {
                     name: "儿科",
@@ -68,7 +66,6 @@ export default {
                     description:
                         "整形烧伤科致力于整形美容和烧伤创伤的医学治疗。我们的整形烧伤团队结合先进技术，为患者提供从整形美容手术到烧伤创伤的综合性整形烧伤医疗服务，帮助患者重获自信。",
                 },
-
             ],
         };
     },
@@ -82,9 +79,13 @@ export default {
     align-items: center;
     flex-direction: column; /* 垂直居中排列 */
     min-height: 100vh; /* 使用min-height确保内容不会挤到底部 */
-    background-color: #f0f0f0;
     padding-top: 20px; /* 增加上边距 */
-    padding-bottom: 20px; /* 增加下边距 */
+    padding-bottom: 20px;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("@/assets/images/images01.png");
 }
 
 .title {

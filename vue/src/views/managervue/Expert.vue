@@ -136,15 +136,19 @@ export default {
     align-items: center;
     flex-direction: column; /* 垂直居中排列 */
     min-height: 100vh;
-    background-color: #f0f0f0;
     padding-top: 20px;
     padding-bottom: 20px;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("@/assets/images/images01.png");
 }
 
 .title {
     font-size: 24px;
     color: #333;
-    margin-bottom: 20px; /* 增加标题与专家介绍之间的间距 */
+    margin-bottom: 20px;
 }
 
 .experts {
@@ -154,7 +158,7 @@ export default {
 }
 
 .expert {
-    width: 22%;
+    width: 20%;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
@@ -195,7 +199,6 @@ export default {
     justify-content: center;
     align-items: center;
 }
-
 .modal-content button {
     margin-top: 10px;
 }

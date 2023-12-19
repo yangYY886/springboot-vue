@@ -1,12 +1,14 @@
 <template>
     <div class="appointment-container">
         <div class="appointment-box">
-            <h2>预约挂号</h2>
+            <!--<h2>预约挂号</h2>-->
             <div class="appointment">
                 <div class="appointment-wraper"></div>
+                <el-card>
+                    <h3 style="margin-bottom: 25px;margin-top: 15px">预约挂号</h3>
                 <div class="appointment-content centered-form">
                     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-                        <el-form-item label="姓名" prop="name">
+                        <el-form-item label="姓名" prop="name" >
                             <el-input v-model="ruleForm.name"></el-input>
                         </el-form-item>
                         <el-form-item label="性别">
@@ -70,7 +72,7 @@
                     </el-form>
 
                 </div>
-
+                </el-card>
             </div>
         </div>
     </div>
@@ -89,7 +91,6 @@ export default {
                 doctor:'',
                 date1: '',
                 date2: '',
-
                 history1:'',
                 history2:'',
 
@@ -147,7 +148,6 @@ export default {
         }
     }
 }
-
 </script>
 
 <style scoped>
@@ -155,10 +155,25 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* 使表单占满整个视口高度 */
+    height: 80vh; /* 使表单占满整个视口高度 */
 }
 .el-input,
 .el-select {
-    height: 40px; /* 根据需要调整高度值 */
+    height: 40px;
+}
+.appointment-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("@/assets/images/images01.png");
+}
+h3 {
+    text-align: center;
+    margin-top: 30px;
 }
 </style>
