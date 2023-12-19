@@ -14,29 +14,29 @@
             active-text-color="white">
             <el-menu-item index="/index">首页</el-menu-item>
 
-            <el-submenu index="/">
+            <el-submenu index="2">
                 <template slot="title">科室介绍</template>
                 <el-menu-item index="keshiIntroduction">科室介绍</el-menu-item>
                 <el-menu-item index="expert">专家介绍</el-menu-item>
             </el-submenu>
 
-          <el-submenu index="/">
+          <el-submenu index="3">
             <template slot="title">预约挂号</template>
             <el-menu-item index="doctorcard">进行预约</el-menu-item>
             <el-menu-item index="record">预约记录</el-menu-item>
           </el-submenu>
 
-          <el-submenu index="/">
+          <el-submenu index="4">
             <template slot="title">个人中心</template>
-            <el-menu-item index="person">个人信息</el-menu-item>
-            <el-menu-item index="password">修改密码</el-menu-item>
+            <el-menu-item index="userPerson">个人信息</el-menu-item>
+            <el-menu-item index="userPassword">修改密码</el-menu-item>
           </el-submenu>
 
         </el-menu>
         <div class="header-right">
             <router-link to="/login" style="width: 40px;position: relative;top: 18px;margin-right: 15px;"
                          v-bind:style="{color:'white',textDecoration:'none'}">
-                登录/注册
+                退出登录
             </router-link>
 
         </div>

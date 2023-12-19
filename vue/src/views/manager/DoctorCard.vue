@@ -226,5 +226,18 @@ export default {
 </script>
 
 <style scoped>
+/*
+.doctorCard-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("@/assets/images/images01.png");
+}
 
+ */
 </style>

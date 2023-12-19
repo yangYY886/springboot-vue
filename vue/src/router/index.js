@@ -15,6 +15,8 @@ const routes = [
       {path: 'department',name: 'Department',component:()=>import('../views/manager/Department.vue')},
       {path: 'news',name: 'News',component:()=>import('../views/manager/News.vue')},
       {path: 'audting',name: 'Audting',component:()=>import('../views/manager/Audting.vue')},
+      {path: 'person',name: 'Person',component:()=>import('../views/manager/Person.vue')},
+      {path: 'password',name: 'password',component:()=>import('../views/manager/Password.vue')},
     ]
   },
   {
@@ -28,8 +30,8 @@ const routes = [
       {path:'keshiIntroduction', name:'keshiIntroduction',component: () =>import('../views/managervue/KeshiIntroduction.vue')},
       {path: 'doctorcard',name: 'DoctorCard',component:()=>import('../views/manager/DoctorCard.vue')},
       {path: 'record',name: 'Record',component:()=>import('../views/manager/Record.vue')},
-      {path: 'password',name: 'Password',component:()=>import('../views/manager/Password.vue')},
-      {path: 'person',name: 'Person',component:()=>import('../views/manager/Person.vue')},
+      {path: 'userPassword',name: 'userPassword',component:()=>import('../views/managervue/UserPassword.vue')},
+      {path: 'userPerson',name: 'userPerson',component:()=>import('../views/managervue/UserPerson.vue')},
     ]},
   {
     path:'/Manager',

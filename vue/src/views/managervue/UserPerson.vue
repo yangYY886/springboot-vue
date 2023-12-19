@@ -1,20 +1,20 @@
 <template>
     <div class="center-container">
-        <el-card style="width: 50%">
+        <el-card style="width: 40%">
             <el-form :model="user" label-width="80px" style="padding-right: 20px">
-                <div style="margin: 15px; text-align: center">
-                    <el-upload
-                            class="avatar-uploader"
-                            action="http://localhost:9090/file/upload"
-                            :headers="{ token: user.token }"
-                            :show-file-list="false"
-                            :on-success="handleAvatarSuccess"
-                    >
-                        <img v-if="user.avatar" :src="user.avatar" class="avatar" />
-                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                    </el-upload>
-                </div>
-                <el-form-item label="用户名" prop="username">
+<!--                <div style="margin: 15px; text-align: center">-->
+<!--                    <el-upload-->
+<!--                            class="avatar-uploader"-->
+<!--                            action="http://localhost:9090/file/upload"-->
+<!--                            :headers="{ token: user.token }"-->
+<!--                            :show-file-list="false"-->
+<!--                            :on-success="handleAvatarSuccess"-->
+<!--                    >-->
+<!--                        <img v-if="user.avatar" :src="user.avatar" class="avatar" />-->
+<!--                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>-->
+<!--                    </el-upload>-->
+<!--                </div>-->
+                <el-form-item label="用户名" prop="username" style="margin-top: 30px;">
                     <el-input v-model="user.username" placeholder="用户名" disabled></el-input>
                 </el-form-item>
                 <el-form-item label="姓名" prop="name">
@@ -49,27 +49,27 @@ export default {
 
     },
     methods: {
-        update() {
-            // 保存当前的用户信息到数据库
-            this.$request.put('/user/update', this.user).then(res => {
-                if (res.code === '200') {
-                    // 成功更新
-                    this.$message.success('保存成功')
-
-                    // 更新浏览器缓存里的用户信息
-                    localStorage.setItem('honey-user', JSON.stringify(this.user))
-
-                    // 触发父级的数据更新
-                    this.$emit('update:user', this.user)
-                } else {
-                    this.$message.error(res.msg)
-                }
-            })
-        },
-        handleAvatarSuccess(response, file, fileList) {
-            // 把user的头像属性换成上传的图片的链接
-            this.user.avatar = response.data
-        },
+        // update() {
+        //     // 保存当前的用户信息到数据库
+        //     this.$request.put('/user/update', this.user).then(res => {
+        //         if (res.code === '200') {
+        //             // 成功更新
+        //             this.$message.success('保存成功')
+        //
+        //             // 更新浏览器缓存里的用户信息
+        //             localStorage.setItem('honey-user', JSON.stringify(this.user))
+        //
+        //             // 触发父级的数据更新
+        //             this.$emit('update:user', this.user)
+        //         } else {
+        //             this.$message.error(res.msg)
+        //         }
+        //     })
+        // },
+        // handleAvatarSuccess(response, file, fileList) {
+        //     // 把user的头像属性换成上传的图片的链接
+        //     this.user.avatar = response.data
+        // },
     }
 }
 </script>
